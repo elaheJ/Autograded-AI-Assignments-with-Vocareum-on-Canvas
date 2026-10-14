@@ -1,0 +1,12 @@
+{
+  "1": "return list(names)",
+  "2": "return list(rows)",
+  "3": "return list(rows)",
+  "4": "return []",
+  "5": "return list(rows)",
+  "6": "return list(rows)",
+  "7": "return 0",
+  "8": "return False",
+  "9": "return False",
+  "10": "return {}"
+}

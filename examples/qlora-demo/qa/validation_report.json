@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "date": "2026-10-14",
+  "python": "3.12.14",
+  "nbgrader": "0.9.6",
+  "questions": 4,
+  "graded_criteria": 8,
+  "points": 100,
+  "completed_notebook_executed": true,
+  "student_preview_generated_by": "nbgrader generate_assignment",
+  "solutions_and_hidden_tests_stripped": true,
+  "comment_only_blanks_compile": true,
+  "answer_style": "ordinary notebook code blocks; no student-defined functions",
+  "native_nbgrader_scores": {
+    "blank": 0.0,
+    "perfect": 100.0,
+    "wrong_q4": 75.0,
+    "tampered_wrong_q4": 75.0,
+    "tampered_blank": 0.0,
+    "hardcoded_q4": 85.0
+  },
+  "mutation_scores": {
+    "wrong_q1": 75,
+    "wrong_q2": 75,
+    "wrong_q3": 75,
+    "wrong_q4": 75,
+    "q1_wrong_quant_type": 85,
+    "q1_missing_double_quant": 85,
+    "q1_integer_boolean": 85,
+    "q2_wrong_alpha": 85,
+    "q2_missing_dropout": 85,
+    "q3_incomplete_layout": 85,
+    "q4_hardcoded_counts": 85,
+    "q4_only_first_trainable": 85,
+    "q4_counts_parameters_instead_of_elements": 85
+  },
+  "actual_vocareum_submission_tested": false
+}

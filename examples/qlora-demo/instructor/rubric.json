@@ -1,0 +1,42 @@
+{
+  "total_points": 100,
+  "questions": [
+    {
+      "question": 1,
+      "visible_points": 10,
+      "hidden_points": 15,
+      "answer_grade_id": "q1-answer",
+      "visible_grade_id": "q1-basic",
+      "hidden_grade_id": "q1-additional",
+      "student_result": "bnb_config"
+    },
+    {
+      "question": 2,
+      "visible_points": 10,
+      "hidden_points": 15,
+      "answer_grade_id": "q2-answer",
+      "visible_grade_id": "q2-basic",
+      "hidden_grade_id": "q2-additional",
+      "student_result": "lora_settings"
+    },
+    {
+      "question": 3,
+      "visible_points": 10,
+      "hidden_points": 15,
+      "answer_grade_id": "q3-answer",
+      "visible_grade_id": "q3-basic",
+      "hidden_grade_id": "q3-additional",
+      "student_result": "layer_output.stdout"
+    },
+    {
+      "question": 4,
+      "visible_points": 10,
+      "hidden_points": 15,
+      "answer_grade_id": "q4-answer",
+      "visible_grade_id": "q4-basic",
+      "hidden_grade_id": "q4-additional",
+      "student_result": "total_parameters, trainable_parameters, size_output.stdout"
+    }
+  ],
+  "answer_style": "ordinary notebook code blocks; no student-defined functions"
+}

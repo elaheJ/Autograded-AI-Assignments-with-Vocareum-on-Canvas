@@ -1,0 +1,110 @@
+{
+  "course": "IT244",
+  "assignment": "arena_tools",
+  "notebook": "244_FA26_Arena_Tools_Autograded.ipynb",
+  "total_points": 100,
+  "questions": 10,
+  "answer_cells": 10,
+  "test_cells": 20,
+  "python": "3.10+",
+  "grader_dependencies": "Python standard library only",
+  "learner_api_requirement": "Optional live practice only",
+  "source": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
+  "classroom_data_policy": "Live source at run time; no stored model observations",
+  "instructor_upload": "instructor/244_FA26_Arena_Tools_Autograded.ipynb",
+  "student_preview": "student_preview/244_FA26_Arena_Tools_Autograded.ipynb",
+  "teaching_notebook": "teaching/244-FA26-Arena-Tools.ipynb",
+  "rubric": [
+    {
+      "question": 1,
+      "title": "Clean model names",
+      "function": "normalize_names",
+      "difficulty": "Easy",
+      "points": 10,
+      "visible_grade_id": "todo-01-basic",
+      "additional_grade_id": "todo-01-robustness"
+    },
+    {
+      "question": 2,
+      "title": "Keep one category",
+      "function": "select_category",
+      "difficulty": "Easy",
+      "points": 10,
+      "visible_grade_id": "todo-02-basic",
+      "additional_grade_id": "todo-02-robustness"
+    },
+    {
+      "question": 3,
+      "title": "Apply a vote minimum",
+      "function": "with_min_votes",
+      "difficulty": "Easy",
+      "points": 10,
+      "visible_grade_id": "todo-03-basic",
+      "additional_grade_id": "todo-03-robustness"
+    },
+    {
+      "question": 4,
+      "title": "Find requested models",
+      "function": "find_models",
+      "difficulty": "Easy",
+      "points": 10,
+      "visible_grade_id": "todo-04-basic",
+      "additional_grade_id": "todo-04-robustness"
+    },
+    {
+      "question": 5,
+      "title": "Order known ratings",
+      "function": "sort_by_rating",
+      "difficulty": "Medium",
+      "points": 10,
+      "visible_grade_id": "todo-05-basic",
+      "additional_grade_id": "todo-05-robustness"
+    },
+    {
+      "question": 6,
+      "title": "Limit the shortlist",
+      "function": "take_top",
+      "difficulty": "Easy",
+      "points": 10,
+      "visible_grade_id": "todo-06-basic",
+      "additional_grade_id": "todo-06-robustness"
+    },
+    {
+      "question": 7,
+      "title": "Measure interval width",
+      "function": "interval_width",
+      "difficulty": "Easy",
+      "points": 10,
+      "visible_grade_id": "todo-07-basic",
+      "additional_grade_id": "todo-07-robustness"
+    },
+    {
+      "question": 8,
+      "title": "Check interval overlap",
+      "function": "intervals_overlap",
+      "difficulty": "Medium",
+      "points": 10,
+      "visible_grade_id": "todo-08-basic",
+      "additional_grade_id": "todo-08-robustness"
+    },
+    {
+      "question": 9,
+      "title": "Validate lookup arguments",
+      "function": "valid_lookup_args",
+      "difficulty": "Medium",
+      "points": 10,
+      "visible_grade_id": "todo-09-basic",
+      "additional_grade_id": "todo-09-robustness"
+    },
+    {
+      "question": 10,
+      "title": "Attach source evidence",
+      "function": "make_tool_result",
+      "difficulty": "Easy",
+      "points": 10,
+      "visible_grade_id": "todo-10-basic",
+      "additional_grade_id": "todo-10-robustness"
+    }
+  ],
+  "platform_status": "Not deployed by this repository. Follow WEB_AGENT_HANDOFF.txt and record actual platform tests separately."
+}

@@ -1,0 +1,33 @@
+VOCAREUM DEPLOYMENT HANDOFF  QLoRA Four-Question Demo
+For a new course deployment using this repository example
+
+1. Use a CPU Vocareum Notebook part with Python 3.10 or newer. The assessment
+   uses the standard library; authoring/QA dependencies are separate.
+2. Upload instructor/344-fa26-qlora-demo-activity.ipynb to the instructor work directory as the solved
+   publishing source. Use 344-fa26-qlora-demo-activity.ipynb as the platform filename for a new deployment.
+   The student_preview notebook is for inspection, not the grading source.
+3. Verify 4 answer cells and 8 test criteria. Each question earns
+   10 visible + 15 additional points; the total is 100. Compare with instructor/rubric.json.
+4. Use Publish Notebook to create student starter files and private grading
+   artifacts. Preserve any existing custom grading behavior before replacing it.
+5. Inspect the generated release in a designated clean test workspace: editable
+   blanks, public checks, no solutions, no hidden assertions, and no saved outputs.
+   Keep instructor files, QA, rubric files, and the repository out of startercode.
+6. Submit synthetic blank, complete, and wrong-answer cases. Expected scores:
+   blank 0; complete 100; Q4 unfinished 75; incorrect Q4 counts with correct labels 85; altered blank tests 0. Inspect criterion feedback.
+7. Restore the designated demonstration workspace to blank answers after testing,
+   preserving recoverable test copies. Do not reset real learner work.
+8. For Canvas, use the institution's existing Vocareum integration and an External
+   Tool assignment mapping. Set 100 points and adapt canvas-instructions.md to the
+   actual platform filename. Verify launch and score return with an authorized
+   test identity; report these separately from local notebook validation.
+
+Before deployment, provide the target course/assignment/part, authorized test
+workspace, and requested Canvas scope. No course-specific destination is bundled.
+See ../../guidelines/02_DEPLOY_AND_VERIFY.md for the full deployment workflow.
+Local results are recorded in qa/validation_report.json. No platform deployment or
+Canvas grade return is established by running the local validator.
+
+Run the supplied model setup first. Preserve the %%capture lines in Q3 and Q4.
+For an update to an existing course, retain its mapped notebook filename and
+reconcile the active criteria without discarding earlier grade history.

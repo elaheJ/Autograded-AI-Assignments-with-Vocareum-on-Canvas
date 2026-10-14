@@ -1,0 +1,212 @@
+HANDOFF 1  PREPARE A VOCAREUM AUTOGRADED NOTEBOOK
+For a coding assistant or human collaborator with notebook files and Python access
+Edition: October 14, 2026
+
+OUTCOME
+Create a complete instructor publishing source and a separate learner preview that
+preserve the assignment's learning objectives. Provide a rubric, required files,
+validation evidence, and exact instructions for the person who will deploy it.
+This stage prepares files. It does not require access to a live Vocareum course.
+
+INPUTS
+Use the intake form in START_HERE.txt. Read the source notebook, supplied answers,
+data, rubric, and relevant project instructions. Identify each student task and its
+expected behavior. Preserve the original in a separate file. If a required answer,
+learning objective, or dependency is ambiguous, resolve it with the instructor.
+Do not manufacture missing subject-matter answers or import facts from a previous
+assignment. State routine implementation assumptions in the handoff.
+
+1. DEFINE THE ASSESSED WORK AND RUNTIME
+List student tasks, prerequisites, expected outputs, and automatic/manual criteria.
+Use the instructor's rubric; otherwise retain an existing rubric or propose an
+explicit provisional one. Keep reflections ungraded unless manual grading is
+requested. Do not invent an automatic assessment of prose quality.
+
+Record Python and package versions, data paths, working directory, kernel, memory,
+execution time, storage, GPU needs, model assets, credentials, and network calls.
+Distinguish learner execution from grader execution. An instructor notebook that
+runs successfully may still fail in a separate grading environment.
+
+Preserve required live experiments. Do not replace real data or measurements with
+synthetic fixtures without authorization. If CPU grading and a live companion are
+requested, separate assessed code from expensive execution. Label toy models,
+synthetic data, cached results, and optional activities accurately. Document any
+cost, download, or authentication prerequisite without embedding credentials.
+
+2. KEEP THE STUDENT TASK NATURAL AND TESTABLE
+Use the answer form appropriate to the lesson: ordinary code blocks, dictionaries,
+calculations, printed output, or small functions. Do not make students define
+functions unless that is part of the intended task. Preserve supplied variable
+names, units, output labels, necessary cell magics, and exercise numbering.
+
+Make criteria independent where the learning objectives allow it. A wrong answer
+should not unnecessarily invalidate unrelated work. Supply separate test inputs,
+reset state where needed, and restore any values patched by tests even on failure.
+Test behavior rather than a single spelling of the reference solution.
+
+Write clear prompts that state what students must do, what they may edit, how to
+run setup and checks, and how points are earned. Additional grading cases may be
+hidden; assessed requirements should be visible. Use specific feedback that helps
+students identify the unmet requirement.
+
+3. ADD GRADING METADATA TO THE SOLVED INSTRUCTOR NOTEBOOK
+Use metadata.nbgrader rather than informal labels alone. Keep notebook cell IDs
+and grade_id values unique. Preserve stable criterion IDs when updating an existing
+assignment. The following schema-version-3 examples are illustrative; verify the
+roles with the installed tools and later with Vocareum's grading interface.
+
+Auto-graded answer:
+  {"nbgrader": {"grade": false, "grade_id": "answer-01", "locked": false,
+                 "schema_version": 3, "solution": true, "task": false}}
+
+Auto-graded test; 4 is an illustrative weight, not a recommended default:
+  {"nbgrader": {"grade": true, "grade_id": "q1-visible", "locked": true,
+                 "points": 4, "schema_version": 3,
+                 "solution": false, "task": false}}
+
+Read-only instruction or setup cell:
+  {"nbgrader": {"grade": false, "grade_id": "setup", "locked": true,
+                 "schema_version": 3, "solution": false, "task": false}}
+
+Editable, ungraded reflection:
+  {"nbgrader": {"grade": false, "grade_id": "reflection", "locked": false,
+                 "schema_version": 3, "solution": false, "task": false}}
+
+For manual grading, use the appropriate manual cell role and explicit criterion
+points. Record the manual subtotal separately; automatic grading cannot finalize it.
+
+4. MARK SOLUTIONS AND PRIVATE CHECKS
+Place one or more scored test cells immediately after each answer cell. Do not
+insert an instruction or analysis cell between an answer and its tests. Put points
+on test cells for automatically graded answers.
+
+Use these exact markers around reference code:
+  ### BEGIN SOLUTION
+  <reference code>
+  ### END SOLUTION
+
+Use these exact markers around additional private assertions:
+  ### BEGIN HIDDEN TESTS
+  <private assertions>
+  ### END HIDDEN TESTS
+
+Retain indentation. Give each scored test cell its own criterion ID. Keep useful
+visible checks outside hidden regions. Split assertions into separate scored cells
+when partial credit is intended; a passing test-cell criterion earns its full weight
+and a failing one earns zero. Do not catch a failed assertion merely to print a
+warning. Choose weights for the actual rubric, with no mandatory visible/hidden split.
+
+Illustrative function answer:
+  def scale_value(value, factor):
+      ### BEGIN SOLUTION
+      return value * factor
+      ### END SOLUTION
+      raise NotImplementedError("Complete this answer.")
+
+The fallback after the solution region leaves a valid unfinished function when a
+publisher replaces the solution with comments. A completed answer returns before
+it. Adapt scaffolding to the task: a dictionary or printed-output exercise may need
+another approach. Inspect the generated learner stub instead of assuming local
+nbgrader and Vocareum insert identical placeholders. Preserve required %%capture
+lines and test the captured output when printed output is assessed.
+
+5. WRITE FAIR GRADING CHECKS
+Check representative inputs and boundaries required by the prompt. Where relevant,
+cover empty selections, threshold equality, row/column shapes, ordering, and zero
+values. Use tolerances for floating-point results. Reject plausible wrong formulas
+or hard-coded examples with additional inputs. Do not assess unstated invalid-input
+behavior, exact generated prose, or machine-specific speed limits.
+
+Tests for printed output should evaluate the requested content, computed values,
+and necessary labels while allowing harmless formatting differences. If hard-coded
+counts do not satisfy the task, check computed variables as well as printed labels.
+
+6. MAKE FILES AND DEPENDENCIES PORTABLE
+Remove personal absolute paths and environment-specific mounting code. Use relative
+paths matching the deployment layout. For learner-visible shared inputs in /voc/data,
+code running in /voc/work commonly reads them with:
+  from pathlib import Path
+  DATA_DIR = Path('../data')
+
+Write generated results under work, for example Path('results'). Preserve relative
+subdirectories for multi-file assets. Keep answer keys, private fixtures, and grading
+code separate from learner data. Record reproducible dependencies in an environment
+or requirements file. A notebook installation cell alone does not configure a
+separate grader. Use the actual target runtime, not a guessed package version.
+
+7. PACKAGE THE RESULT
+Use assignment-specific filenames; this is the recommended structure:
+  <package>/
+    instructor/<notebook>.ipynb         Solved publishing source
+    instructor/rubric.json             Criterion IDs, weights, totals
+    student_preview/<notebook>.ipynb    Stripped learner release
+    data/<learner-visible-inputs>       Only if required
+    docs/<learner-instructions>         Optional
+    requirements.txt                   Or equivalent environment specification
+    WEB_AGENT_HANDOFF.txt               Deployment instructions
+    qa/validation_report.json          Checks, observed scores, limitations
+    qa/<reproducible-check-script>      When needed for validation
+
+Keep optional ungraded companions clearly identified. Provide a manifest with
+exact source and destination filenames, visibility, and dependencies. Include
+checksums when transferring or revising a package. An instructor delivery ZIP may
+contain private answers and tests; it must never be uploaded wholesale as student
+startercode. Do not require local examples outside the delivery package.
+
+8. VALIDATE THE ACTUAL RELEASE AND GRADING
+Use an isolated test environment. Check notebook structure, unique IDs, grading
+metadata, paired markers, answer/test adjacency, and rubric arithmetic. Execute
+the solved source from a fresh kernel with the intended data layout.
+
+Use native nbgrader release generation and autograding when available. The commands
+below run from a configured nbgrader course directory and require its source and
+submitted file trees. Replace placeholders with actual identifiers; quote paths
+appropriately for the operating system.
+  nbgrader validate source/<assignment>/<notebook>.ipynb
+  nbgrader generate_assignment <assignment>
+  nbgrader autograde <assignment> --student <synthetic-test-id>
+
+Use the same environment for the kernel and command-line tools. Make dependencies
+available to subprocesses. Recreate ../data relative to each execution directory.
+Report tool versions, actual commands, and observed outcomes. If native generation
+or autograding is unavailable, complete other checks and label native grading as
+NOT RUN; do not claim a custom preview proves platform compatibility.
+
+Required cases:
+- Solved answers earn the intended automatic maximum.
+- The untouched learner release earns the intended blank score, normally zero.
+- One deliberately wrong answer loses the expected criteria without avoidable
+  losses on unrelated questions.
+- Additional plausible wrong answers are rejected.
+- Altering supplied tests does not grant credit to an incorrect answer; restoration
+  or rejection is verified through the grader.
+- The learner release has no reference answers, hidden assertions, private fixtures,
+  revealing saved outputs, attachments, credentials, or private metadata.
+
+Use the generated release, not a hand-written approximation. Keep unfinished cells
+syntactically valid where possible. Clear outputs and execution counts in distributed
+notebooks; retain test evidence in qa. For mixed grading, report the automatic
+subtotal and the manual points still awaiting review.
+
+9. WRITE THE DEPLOYMENT HANDOFF
+Complete 03_ASSIGNMENT_HANDOFF_TEMPLATE.txt as WEB_AGENT_HANDOFF.txt. Specify the
+publishing source, its platform filename, every destination, runtime setup, cell
+roles, criterion IDs, totals, and exact expected scores for the test cases. Separate
+local results from pending platform checks. Include any approved LMS scope.
+
+DONE WHEN
+The original is preserved; publishing source, learner preview, and required files
+are ready; grading and release checks have recorded outcomes; and the next
+collaborator can deploy without guessing filenames, points, paths, or prerequisites.
+Report PREPARED, with any remaining checks clearly identified.
+
+PRIMARY REFERENCES
+Vocareum notebook grading and publishing:
+https://help.vocareum.com/en/articles/9341352-setting-up-grading-in-vocareum-notebook
+Vocareum folders and learner update behavior:
+https://help.vocareum.com/en/articles/9341349-navigating-the-vocareum-files-browser
+nbgrader assignment creation and grading:
+https://nbgrader.readthedocs.io/en/stable/user_guide/creating_and_grading_assignments.html
+
+Documentation reviewed October 14, 2026. Verify compatibility in the actual target
+environment; this guide is not evidence that a particular assignment has been tested.

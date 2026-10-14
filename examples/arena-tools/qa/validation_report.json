@@ -1,0 +1,99 @@
+{
+  "notebook_schema_valid": true,
+  "answers": 10,
+  "test_cells": 20,
+  "total_points": 100,
+  "completed_activity_executed_without_errors": true,
+  "teaching_definition_cells_and_visible_checks_executed": true,
+  "native_nbgrader_release_strips_solutions_and_hidden_tests": true,
+  "native_nbgrader_scores": {
+    "blank": 0.0,
+    "perfect": 100.0,
+    "wrong05": 90.0,
+    "tampered-tests": 90.0
+  },
+  "mutation_checks": [
+    {
+      "question": 1,
+      "incorrect_answer_rejected_by": [
+        "todo-01-basic",
+        "todo-01-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 2,
+      "incorrect_answer_rejected_by": [
+        "todo-02-basic",
+        "todo-02-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 3,
+      "incorrect_answer_rejected_by": [
+        "todo-03-basic",
+        "todo-03-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 4,
+      "incorrect_answer_rejected_by": [
+        "todo-04-basic",
+        "todo-04-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 5,
+      "incorrect_answer_rejected_by": [
+        "todo-05-basic",
+        "todo-05-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 6,
+      "incorrect_answer_rejected_by": [
+        "todo-06-basic",
+        "todo-06-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 7,
+      "incorrect_answer_rejected_by": [
+        "todo-07-basic",
+        "todo-07-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 8,
+      "incorrect_answer_rejected_by": [
+        "todo-08-basic",
+        "todo-08-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 9,
+      "incorrect_answer_rejected_by": [
+        "todo-09-basic",
+        "todo-09-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    },
+    {
+      "question": 10,
+      "incorrect_answer_rejected_by": [
+        "todo-10-basic",
+        "todo-10-robustness"
+      ],
+      "unrelated_criteria_pass": true
+    }
+  ],
+  "live_api_and_controller": "Not run by this validator. Optional live data and paid controller calls require separate instructor setup.",
+  "vocareum_platform_status": "Not tested by this validator; verify publication and submissions in your own course."
+}

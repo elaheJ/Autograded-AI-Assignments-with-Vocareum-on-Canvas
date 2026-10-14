@@ -1,0 +1,14 @@
+{
+  "course": "IT344",
+  "assignment": "qlora_demo",
+  "notebook": "344-fa26-qlora-demo-activity.ipynb",
+  "questions": 4,
+  "total_points": 100,
+  "visible_points_per_question": 10,
+  "hidden_points_per_question": 15,
+  "instructor_source": "instructor/344-fa26-qlora-demo-activity.ipynb",
+  "student_preview": "student_preview/344-fa26-qlora-demo-activity.ipynb",
+  "root_activity_is_student_preview": true,
+  "answer_style": "ordinary notebook code blocks; no student-defined functions",
+  "platform_status": "Not deployed by this repository. Follow WEB_AGENT_HANDOFF.txt and record actual platform tests separately."
+}
